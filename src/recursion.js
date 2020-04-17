@@ -242,6 +242,10 @@ var divide = function(x, y) {
 // https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
 var gcd = function(x, y) {
 
+  if(x<0 || y<0){
+
+    return null;
+  }
   if(x===0){
     return y;
   }
@@ -249,9 +253,13 @@ var gcd = function(x, y) {
     return x;
   }
 
-   x = modulo(divide(x,y));
+  if(y>x){
+    return x;
+  }
 
-  return gcd(x,y)
+
+
+  return gcd(x,y-1)-y;
 
 };
 
@@ -260,21 +268,76 @@ var gcd = function(x, y) {
 // compareStr('house', 'houses') // false
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+
+
+      if(str1[0] === str2[0]){
+
+      } else{
+
+        return false;
+      }
+
+     str1= str1.slice(1);
+     str2= str2.slice(1);
+
+      if(str1.length === 0 && str2.length===0){
+        return true;
+      }
+
+      return compareStr(str1,str2)
+
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
 var createArray = function(str) {
+
+  if(str.length== 0){
+
+    return [];
+  }
+
+  if(str.slice(1)==='String'){
+    return 0;
+  }
+
+    str=str.slice(1);
+
+    return [str].concat(createArray(str))
+
 };
 
 // 17. Reverse the order of an array
 var reverseArr = function(array) {
+
+if(array.length === 0){
+
+  return 0;
+}
+
+
+      array=array.slice(array.length-1);
+
+
+    var lastIndex=array.slice(array.length-1,array.length);
+
+
+    //return n - 1 +sumBelow(n-1)
+
+    array.slice(1);
+  return [].concat(reverseArr(array)+);
 };
 
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
 var buildList = function(value, length) {
+
+
+
+
+
+
 };
 
 // 19. Implement FizzBuzz. Given integer n, return an array of the string representations of 1 to n.
